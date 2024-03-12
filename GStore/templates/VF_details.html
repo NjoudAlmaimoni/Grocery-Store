@@ -1,0 +1,51 @@
+{% extends 'base.html' %} 
+ 
+{% block content %} 
+
+<div class="class mt-5 d-grid gap-2 col-6 mx-auto">
+    {% for item in VF%}
+    <div class="card-border-0 mb-3" style="max-width: 800rem;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="/static/imageVF/{{item.image}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body ">
+              <h5 class="card-title ">{{item.itemsid.name}}</h5>
+              <p class="card-text mt-3">Fresh and Organic Fruite .</p>
+              <ul>
+                <li>
+                    <b>price:</b>   {{item.price}} SAR
+                </li>
+                <li>
+                    <b>color:</b>   {{item.color}}
+                </li>
+                <li>
+                    <b>quantity:</b>  {{item.qty}}
+                </li>
+              </ul>
+              
+              <a href="{% url 'add_to_cart' id=item.id %}" >
+                <div class="card-border0 p-2">
+                    <div class="bottom d-flex flex-row justify-content-left">
+                        <div class="input-group mb-3" style="width: 15rem;">
+                          <span class="input-group-text">+</span>
+                          <input type="text" class="form-control" value="1">
+                          <span class="input-group-text">-</span>
+                        </div>
+                        <span id="boot-icon" class="bi bi-cart-plus-fill" style=" color: rgb(0, 128, 55); margin-left: 8%; font-size:25px "></span>
+                        </div>
+                  
+              </div>
+              </a>
+                <a class="btn2 btn-success btn-sm add" href="{%url 'checkout'%}" ><b>BUY</b></a>
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+</div>
+
+
+{% endblock %}

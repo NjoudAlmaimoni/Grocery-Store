@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+ 
+{% block content %} 
+
+<style>
+    .card{
+    width: 350px;
+    border: none;
+    border-radius: 5px;
+    }
+  
+</style>
+<body>
+    
+
+    <div class="container d-flex flex-row "> 
+        {% for item in VF%}
+        <div class="row  ">
+            <div class="col -md-4 mb-3">
+                <div class="card ">
+                    
+                    <div class="card-body " >
+                        <div class="middle">
+                            <a href="{%url 'VF_details' id=item.id %}"><img src="../static/imageVF/{{item.image}}" width="300" class="mt-3"></a>
+                            <h5>{{item.itemsid.name}}</h5>
+                            <span><b>color :</b>{{item.color}} <b>Qty :</b> {{item.qty}}</span>
+                            
+                        </div>
+                    <div class="bottom d-flex flex-row justify-content-center">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text">+</span>
+                          <input type="text" class="form-control" value="1">
+                          <span class="input-group-text">-</span>
+                        </div>
+                        <button class="btn2 btn-success btn-sm add" ><a href="#"></a>Add For <b>{{item.price}}</b></button>
+                        </div>
+                    </div>
+            
+            </div>
+            </div>
+            
+        </div>     
+{%endfor%}
+</body>
+
+{% endblock %}
